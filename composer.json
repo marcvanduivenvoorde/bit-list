@@ -8,5 +8,10 @@
             "email": "marcvanduivenvoorde@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "\\MarcVanDuivenvoorde\\BitList\\": "src/MarcVanDuivenvoorde/BitList"
+        }
+    },
     "require": {}
 }
