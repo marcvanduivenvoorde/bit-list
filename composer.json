@@ -1,0 +1,12 @@
+{
+    "name": "marcvanduivenvoorde/bit-list",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marc van Duivenvoorde",
+            "email": "marcvanduivenvoorde@gmail.com"
+        }
+    ],
+    "require": {}
+}
