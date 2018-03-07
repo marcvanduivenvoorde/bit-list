@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "\\MarcVanDuivenvoorde\\BitList\\": "src/MarcVanDuivenvoorde/BitList"
+            "\\MarcVanDuivenvoorde\\BitList\\": "src/MarcVanDuivenvoorde/BitList/"
         }
     },
     "require": {}
