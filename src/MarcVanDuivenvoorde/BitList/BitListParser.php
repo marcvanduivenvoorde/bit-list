@@ -11,7 +11,8 @@ class BitListParser
 {
 
     /**
-     * Is the requested bit available in the list.
+     * Is the requested bit available in the list. The array key must correspond to
+     * the bits.
      *
      * @param int $bit
      * @param array $list
@@ -20,13 +21,9 @@ class BitListParser
      */
     public function listHasBit($bit, array $list)
     {
-        foreach ($list as $checkBit) {
-            if ($bit & $checkBit) {
-                return true;
-            }
-        }
+        $max = max(array_keys($list));
 
-        return false;
+        return ($bit < ($max * 2));
     }
 
     /**
@@ -44,6 +41,10 @@ class BitListParser
         $result = [];
 
         foreach ($list as $index => $row) {
+            if ($index > $bit) {
+                break;
+            }
+
             if ($bit & $index) {
                 $result[] = $row;
             }
@@ -67,6 +68,10 @@ class BitListParser
         $result = [];
 
         foreach ($list as $index => $row) {
+            if ($index > $bit) {
+                break;
+            }
+
             if ($bit & $index) {
                 $result[$index] = $row;
             }
