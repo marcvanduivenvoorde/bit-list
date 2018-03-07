@@ -30,7 +30,9 @@ class BitListParser
     }
 
     /**
-     * Get the items from the list for the bit.
+     * Get the items from the list for the bit. The array key must correspond to
+     * the bits. The returned value is a list with the items corresponding to the
+     * defined bit. The returned array keys are sequential starting with zero.
      *
      * @param int $bit
      * @param array $list
@@ -44,6 +46,29 @@ class BitListParser
         foreach ($list as $index => $row) {
             if ($bit & $index) {
                 $result[] = $row;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Get the items from the list for the bit. The array key must correspond to
+     * the bits. The returned value is a list with the items corresponding to the
+     * defined bit. The array keys correspond to the returned bit.
+     *
+     * @param int $bit
+     * @param array $list
+     *
+     * @return array
+     */
+    public function getItemsByBitWithBitAsKey($bit, array $list)
+    {
+        $result = [];
+
+        foreach ($list as $index => $row) {
+            if ($bit & $index) {
+                $result[$index] = $row;
             }
         }
 
