@@ -4,14 +4,35 @@
 namespace MarcVanDuivenvoorde\BitList;
 
 
-class BitList {
+class BitListParser {
+
   /**
+   * Is the requested bit available in the list.
+   *
+   * @param int $bit
+   * @param array $list
+   *
+   * @return bool
+   */
+  public function listHasBit($bit, array $list) {
+    foreach ($list as $checkBit) {
+      if ($bit & $checkBit) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /**
+   * Get the items from the list for the bit.
+   *
    * @param int $bit
    * @param array $list
    *
    * @return array
    */
-  public static function getItemsByBit($bit, array $list) {
+  public function getItemsByBit($bit, array $list) {
     $result = [];
 
     foreach ($list as $index => $row) {
@@ -24,12 +45,14 @@ class BitList {
   }
 
   /**
+   * Calculate the bit for a subset of the items in the list.
+   *
    * @param array $items
    * @param array $list
    *
    * @return null|int
    */
-  public static function getBitByItems(array $items, array $list) {
+  public function getBitByItems(array $items, array $list) {
     $bit = null;
 
     $searchList = array_flip($list);
@@ -42,4 +65,5 @@ class BitList {
 
     return $bit;
   }
+
 }
