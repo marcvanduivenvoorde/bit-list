@@ -13,7 +13,16 @@
             "MarcVanDuivenvoorde\\BitList\\": "src/MarcVanDuivenvoorde/BitList/"
         }
     },
-    "require": {},
+
+    "autoload-dev": {
+        "psr-4": {
+            "MarcVanDuivenvoorde\\BitList\\": "tests/MarcVanDuivenvoorde/BitList/"
+        }
+    },
+
+    "require": {
+        "php": ">=7"
+    },
     "require-dev": {
         "phpunit/phpunit": "^4"
     }

@@ -1,15 +1,14 @@
 <?php
 
-namespace MarcVanDuivenvoorde\BitList;
+namespace MarcVanDuivenvoorde\BitList\Traits;
 
 /**
  * Class BitListParser.
  *
  * @package MarcVanDuivenvoorde\BitList
  */
-class BitListParser
+trait BitListParserTrait
 {
-
     /**
      * Is the requested bit available in the list. The array key must correspond to
      * the bits.
@@ -19,7 +18,7 @@ class BitListParser
      *
      * @return bool
      */
-    public function listHasBit($bit, array $list)
+    protected function listHasBit($bit, array $list)
     {
         $max = max(array_keys($list));
 
@@ -36,7 +35,7 @@ class BitListParser
      *
      * @return array
      */
-    public function getItemsByBit($bit, array $list)
+    protected function getItemsByBit($bit, array $list)
     {
         $result = [];
 
@@ -63,7 +62,7 @@ class BitListParser
      *
      * @return array
      */
-    public function getItemsByBitWithBitAsKey($bit, array $list)
+    protected function getItemsByBitWithBitAsKey($bit, array $list)
     {
         $result = [];
 
@@ -88,7 +87,7 @@ class BitListParser
      *
      * @return null|int
      */
-    public function getBitByItems(array $items, array $list)
+    protected function getBitByItems(array $items, array $list)
     {
         $bit = null;
 
