@@ -1,15 +1,14 @@
 <?php
 
-namespace MarcVanDuivenvoorde\BitList;
+namespace MarcVanDuivenvoorde\BitList\Traits;
 
 /**
  * Class BitListParser.
  *
  * @package MarcVanDuivenvoorde\BitList
  */
-class BitListParser
+trait BitListParserTrait
 {
-
     /**
      * Is the requested bit available in the list. The array key must correspond to
      * the bits.

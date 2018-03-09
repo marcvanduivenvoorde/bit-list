@@ -2,19 +2,20 @@
 
 namespace MarcVanDuivenvoorde\BitList;
 
+use MarcVanDuivenvoorde\BitList\Traits\BitListParserTrait;
 use Prophecy\Prophet;
 
 class BitListParserTest extends \PHPUnit_Framework_TestCase
 {
     /**
      *
-     * @var BitListParser
+     * @var BitListParserTrait
      */
     private $bitListParser;
 
     public function setUp()
     {
-        $this->bitListParser = new BitListParser();
+        $this->bitListParser = new BitListParserTrait();
     }
 
     /**
