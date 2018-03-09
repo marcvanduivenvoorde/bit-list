@@ -9,22 +9,31 @@ namespace MarcVanDuivenvoorde\BitList;
 use MarcVanDuivenvoorde\BitList\Interfaces\BitListInterface;
 use MarcVanDuivenvoorde\BitList\Traits\BitListIteratorTrait;
 use MarcVanDuivenvoorde\BitList\Traits\BitListParserTrait;
+use MarcVanDuivenvoorde\BitList\Traits\BitListTrait;
 
 class BitListImmutable implements BitListInterface
 {
     use BitListIteratorTrait;
     use BitListParserTrait;
+    use BitListTrait;
 
+    /**
+     * BitListImmutable constructor.
+     *
+     * @param array $list
+     */
     public function __construct(array $list)
     {
+        if (!$this->isValid($list)) {
+            throw new \RuntimeException('Cannot use this input list.');
+        }
+
         $this->list = $list;
     }
 
-    public function get(int $bit)
-    {
-        return $this->getItemsByBit($bit, $this->getList());
-    }
-
+    /**
+     * @inheritdoc
+     */
     public function add($value): BitListInterface
     {
         $list = $this->getList();
@@ -35,21 +44,19 @@ class BitListImmutable implements BitListInterface
         return new BitListImmutable($list);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function set(int $bit, $value): BitListInterface
     {
         $list = $this->getList();
-
         $itemsToUpdate = $this->getItemsByBitWithBitAsKey($bit, $list);
 
-        foreach ($itemsToUpdate as $index => $replace) {
+        foreach (array_keys($itemsToUpdate) as $index) {
             $list[$index] = $value;
         }
 
         return new BitListImmutable($list);
     }
 
-    protected function getList()
-    {
-        return $this->list;
-    }
 }

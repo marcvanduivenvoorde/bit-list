@@ -18,7 +18,7 @@ trait BitListParserTrait
      *
      * @return bool
      */
-    public function listHasBit($bit, array $list)
+    protected function listHasBit($bit, array $list)
     {
         $max = max(array_keys($list));
 
@@ -35,7 +35,7 @@ trait BitListParserTrait
      *
      * @return array
      */
-    public function getItemsByBit($bit, array $list)
+    protected function getItemsByBit($bit, array $list)
     {
         $result = [];
 
@@ -62,7 +62,7 @@ trait BitListParserTrait
      *
      * @return array
      */
-    public function getItemsByBitWithBitAsKey($bit, array $list)
+    protected function getItemsByBitWithBitAsKey($bit, array $list)
     {
         $result = [];
 
@@ -87,7 +87,7 @@ trait BitListParserTrait
      *
      * @return null|int
      */
-    public function getBitByItems(array $items, array $list)
+    protected function getBitByItems(array $items, array $list)
     {
         $bit = null;
 

@@ -9,6 +9,15 @@ namespace MarcVanDuivenvoorde\BitList\Interfaces;
 interface BitListInterface extends \Iterator
 {
     /**
+     * Is the bit available in the list.
+     *
+     * @param int $bit
+     *
+     * @return bool
+     */
+    public function has(int $bit): bool;
+
+    /**
      * Get the value for a bit from the list.
      *
      * @param int $bit

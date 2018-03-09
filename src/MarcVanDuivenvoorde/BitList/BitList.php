@@ -5,28 +5,46 @@ namespace MarcVanDuivenvoorde\BitList;
 use MarcVanDuivenvoorde\BitList\Interfaces\BitListInterface;
 use MarcVanDuivenvoorde\BitList\Traits\BitListIteratorTrait;
 use MarcVanDuivenvoorde\BitList\Traits\BitListParserTrait;
+use MarcVanDuivenvoorde\BitList\Traits\BitListTrait;
 
 class BitList implements BitListInterface
 {
     use BitListIteratorTrait;
     use BitListParserTrait;
+    use BitListTrait;
 
-
-
-    public function get(int $bit)
+    public function __construct(array $list)
     {
-        // TODO: Implement get() method.
+        if (!$this->isValid($list)) {
+            throw new \RuntimeException('Cannot use this input list.');
+        }
+
+        $this->list = $list;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function add($value): BitListInterface
     {
-        // TODO: Implement add() method.
+        $nextKey = (int) (max(array_keys($this->list)) * 2);
+        $this->list[$nextKey] = $value;
+
+        return $this;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function set(int $bit, $value): BitListInterface
     {
-        // TODO: Implement set() method.
-    }
+        $itemsToUpdate = $this->getItemsByBitWithBitAsKey($bit, $this->list);
 
+        foreach (array_keys($itemsToUpdate) as $index) {
+            $this->list[$index] = $value;
+        }
+
+        return $this;
+    }
 
 }
