@@ -1,9 +1,12 @@
 <?php
 
-
 namespace MarcVanDuivenvoorde\BitList\Traits;
 
-
+/**
+ * Trait BitListTrait
+ *
+ * @package MarcVanDuivenvoorde\BitList\Traits
+ */
 trait BitListTrait
 {
     /**
@@ -32,12 +35,19 @@ trait BitListTrait
         return $this->list;
     }
 
+    /**
+     * Check if the imported data set is a valid sequenced list.
+     *
+     * @param array $list
+     *
+     * @return bool
+     */
     protected function isValid(array $list)
     {
         $start = 1;
 
         foreach (array_keys($list) as $index) {
-            if ($index != $start) {
+            if ($index !== $start) {
                 return false;
             }
 

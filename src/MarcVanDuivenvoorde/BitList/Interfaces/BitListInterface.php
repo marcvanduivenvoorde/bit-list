@@ -1,11 +1,12 @@
 <?php
-/**
- * @copyright (c) 2018 D-beat media
- */
 
 namespace MarcVanDuivenvoorde\BitList\Interfaces;
 
-
+/**
+ * Interface BitListInterface.
+ *
+ * @package MarcVanDuivenvoorde\BitList\Interfaces
+ */
 interface BitListInterface extends \Iterator
 {
     /**

@@ -7,12 +7,22 @@ use MarcVanDuivenvoorde\BitList\Traits\BitListIteratorTrait;
 use MarcVanDuivenvoorde\BitList\Traits\BitListParserTrait;
 use MarcVanDuivenvoorde\BitList\Traits\BitListTrait;
 
+/**
+ * Class BitList.
+ *
+ * @package MarcVanDuivenvoorde\BitList
+ */
 class BitList implements BitListInterface
 {
     use BitListIteratorTrait;
     use BitListParserTrait;
     use BitListTrait;
 
+    /**
+     * BitList constructor.
+     *
+     * @param array $list
+     */
     public function __construct(array $list)
     {
         if (!$this->isValid($list)) {

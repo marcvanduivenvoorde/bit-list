@@ -2,6 +2,11 @@
 
 namespace MarcVanDuivenvoorde\BitList;
 
+/**
+ * Class BitListGenerator.
+ *
+ * @package MarcVanDuivenvoorde\BitList
+ */
 class BitListGenerator
 {
     /**

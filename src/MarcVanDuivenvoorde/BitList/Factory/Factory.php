@@ -8,6 +8,11 @@ use MarcVanDuivenvoorde\BitList\BitList;
 use MarcVanDuivenvoorde\BitList\BitListGenerator;
 use MarcVanDuivenvoorde\BitList\BitListImmutable;
 
+/**
+ * Class Factory.
+ *
+ * @package MarcVanDuivenvoorde\BitList\Factory
+ */
 class Factory
 {
     /**

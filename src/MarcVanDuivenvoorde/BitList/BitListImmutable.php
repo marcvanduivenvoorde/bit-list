@@ -1,16 +1,17 @@
 <?php
-/**
- * @copyright (c) 2018 D-beat media
- */
 
 namespace MarcVanDuivenvoorde\BitList;
-
 
 use MarcVanDuivenvoorde\BitList\Interfaces\BitListInterface;
 use MarcVanDuivenvoorde\BitList\Traits\BitListIteratorTrait;
 use MarcVanDuivenvoorde\BitList\Traits\BitListParserTrait;
 use MarcVanDuivenvoorde\BitList\Traits\BitListTrait;
 
+/**
+ * Class BitListImmutable.
+ *
+ * @package MarcVanDuivenvoorde\BitList
+ */
 class BitListImmutable implements BitListInterface
 {
     use BitListIteratorTrait;
@@ -37,7 +38,7 @@ class BitListImmutable implements BitListInterface
     public function add($value): BitListInterface
     {
         $list = $this->getList();
-        $nextKey = max(array_keys($list)) * 2;
+        $nextKey = (int) (max(array_keys($list)) * 2);
 
         $list[$nextKey] = $value;
 
