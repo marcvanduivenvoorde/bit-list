@@ -50,6 +50,12 @@ class BitList implements BitListInterface
     {
         $itemsToUpdate = $this->getItemsByBitWithBitAsKey($bit, $this->list);
 
+        if (empty($itemsToUpdate)) {
+            $this->list[$bit] = $value;
+
+            return $this;
+        }
+
         foreach (array_keys($itemsToUpdate) as $index) {
             $this->list[$index] = $value;
         }
